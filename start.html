@@ -1,0 +1,109 @@
+<head>
+  <style>
+    .mona,
+    .yuanmo {
+      width: 100%;
+      height: 320px;
+    }
+  </style>
+  <title>mona -> yuanmo</title>
+</head>
+
+<body>
+  <textarea class='mona' placeholder='mona'></textarea>
+  <textarea class='yuanmo' placeholder='yuanmo'></textarea>
+  <a href='https://github.com/phonowell/mona2yuanmo' target='_blank'>github</a>
+  <p>Copyright © 2021, Mimiko.</p>
+  <script>
+
+    // variable
+
+    const dict = {
+      "flower": "flower",
+      "feather": "plume",
+      "sand": "eon",
+      "cup": "goblet",
+      "head": "circlet",
+      "attackPercentage": "percentATK",
+      "attackStatic": "flatATK",
+      "defendPercentage": "percentDEF",
+      "defendStatic": "flatDEF",
+      "lifePercentage": "percentHP",
+      "lifeStatic": "flatHP",
+      "elementalMastery": "elementalMastery",
+      "recharge": "energyRecharge",
+      "critical": "critRate",
+      "criticalDamage": "critDamage",
+      "cureEffect": "healing",
+      "fireBonus": "pyroDamage",
+      "iceBonus": "cryoDamage",
+      "physicalBonus": "physicalDamage",
+      "rockBonus": "geoDamage",
+      "thunderBonus": "electroDamage",
+      "waterBonus": "hydroDamage",
+      "windBonus": "anemoDamage",
+      "blizzardStrayer": "blizzard_walker",
+      "crimsonWitch": "crimson_witch_of_flames",
+      "emblemOfSeveredFate": "seal_of_insulation",
+      "gladiatorFinale": "gladiators_finale",
+      "heartOfDepth": "heart_of_depth",
+      "lavaWalker": "lavawalker",
+      "maidenBeloved": "maiden_beloved",
+      "noblesseOblige": "noblesse_oblige",
+      "oceanHuedClam": "divine_chorus",
+      "paleFlame": "pale_flame",
+      "shimenawaReminiscence": "reminiscence_of_shime",
+      "tenacityOfTheMillelith": "tenacity_of_the_millelith",
+      "viridescentVenerer": "viridescent_venerer",
+      "wandererTroupe": "wanderers_troupe"
+    }
+
+    const $mona = document.querySelector('.mona')
+    const $yuanmo = document.querySelector('.yuanmo')
+
+    // function
+
+    const main = async () => {
+      const data = JSON.parse($mona.value.trim())
+      const result = [
+        ...data.flower,
+        ...data.feather,
+        ...data.sand,
+        ...data.cup,
+        ...data.head,
+      ]
+        .filter(it => it.level === 20)
+        .map(it => ({
+          asKey: translateName(it.setName) || snakeCase(it.setName),
+          rarity: it.star,
+          slot: translateName(it.position),
+          level: it.level,
+          mainStat: translateName(it.mainTag.name),
+          subStat1Type: translateName(it.normalTags[0].name),
+          subStat1Value: translateValue(it.normalTags[0].value),
+          subStat2Type: translateName(it.normalTags[1].name),
+          subStat2Value: translateValue(it.normalTags[1].value),
+          subStat3Type: translateName(it.normalTags[2].name),
+          subStat3Value: translateValue(it.normalTags[2].value),
+          subStat4Type: translateName(it.normalTags[3].name),
+          subStat4Value: translateValue(it.normalTags[3].value),
+          mark: 'none',
+        }))
+      $yuanmo.value = JSON.stringify(result, null, 2)
+    }
+
+    const snakeCase = (str) => str.replace(/([a-z])([A-Z])/g, '$1_$2').toLowerCase()
+
+    const translateName = (
+      input,
+    ) => dict[input] || ''
+
+    const translateValue = (
+      input,
+    ) => input > 1 ? input : parseFloat((input * 100).toFixed(1))
+
+    // execute
+    $mona.addEventListener('change', main)
+
+  </script>
+</body>
