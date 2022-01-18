@@ -47,6 +47,7 @@ const format = (text: string) => {
       mark: 'none',
     }))
   save(JSON.stringify(result, null, 2))
+  window.location.reload()
 }
 
 const main = () => {
