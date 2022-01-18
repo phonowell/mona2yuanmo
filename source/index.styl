@@ -1,0 +1,50 @@
+@keyframes float
+  0%, 100%
+    transform translateY(-16px)
+  50%
+    transform translateY(16px)
+
+body
+  width 100vw
+  height 100vh
+  margin 0
+  padding 0
+  background-image linear-gradient(#AED6F1, #85C1E9)
+  user-select none
+
+.btn
+  position absolute
+  width 320px
+  height 80px
+  left calc((100vw - 320px) * 0.5)
+  top calc((100vh - 80px) * 0.5)
+  text-align center
+  line-height @height
+  background-color #F7DC6F
+  color #333
+  font-size @height * 0.5
+  font-weight bold
+  box-shadow 0 8px 16px rgba(#000, 0.2)
+  border-radius @height * 0.5
+  cursor pointer
+  animation float 60s ease-in-out infinite
+
+.file
+  opacity 0
+  pointer-events none
+
+.footer
+  position absolute
+  left 0
+  bottom 20px
+  box-sizing border-box
+  height 40px
+  margin 0
+  padding 0 2vw
+
+  a, p
+    margin 0
+    padding 0
+    line-height 20px
+    color rgba(#fff, 0.5)
+    font-size 16px

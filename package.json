@@ -1,0 +1,38 @@
+{
+  "author": "Mimiko Phonowell <phnonwell@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/phonowell/mona2yuanmo/issues"
+  },
+  "dependencies": {
+    "fire-keeper": "^0.0.199",
+    "lodash": "^4.17.21",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  },
+  "description": "",
+  "devDependencies": {
+    "@types/lodash": "^4.14.178",
+    "@types/node": "^16.11.19",
+    "@types/yargs": "^17.0.8",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0"
+  },
+  "homepage": "https://github.com/phonowell/mona2yuanmo",
+  "keywords": [
+    "genshin",
+    "genshin impact"
+  ],
+  "license": "MIT",
+  "name": "mona2yuanmo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phonowell/mona2yuanmo.git"
+  },
+  "scripts": {
+    "alice": "ts-node task/alice",
+    "build": "npm run alice build",
+    "watch": "npm run alice watch"
+  },
+  "url": "https://github.com/phonowell/mona2yuanmo",
+  "version": "0.0.1"
+}
