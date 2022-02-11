@@ -34,5 +34,5 @@
     "watch": "npm run alice watch"
   },
   "url": "https://github.com/phonowell/mona2yuanmo",
-  "version": "0.0.1"
+  "version": "0.0.2"
 }
