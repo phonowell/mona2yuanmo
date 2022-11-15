@@ -1,18 +1,15 @@
 import $ from 'fire-keeper'
-import debounce from 'lodash/debounce'
+
+import { compile } from './build'
+import throttle from 'lodash/throttle'
 
 // function
 
-const build = debounce(() => $.exec('npm run alice build'), 5e3, { trailing: true })
+const compile2 = throttle(compile, 1e3)
 
-const main = () => {
-  process.on('uncaughtException', e => console.error(e))
-  $.watch([
-    './source/**/*.pug',
-    './source/**/*.styl',
-    './source/**/*.ts',
-    './source/**/*.yaml',
-  ], build)
+const main = async () => {
+  process.on('uncoughtException', err => console.log(err))
+  $.watch('./source/**/*', compile2)
 }
 
 // export
