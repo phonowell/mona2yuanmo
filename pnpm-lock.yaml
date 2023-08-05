@@ -2435,8 +2435,8 @@ packages:
     dependencies:
       ms: 2.1.2
 
-  /decode-uri-component@0.2.0:
-    resolution: {integrity: sha512-hjf+xovcEn31w/EUYdTXQh/8smFL/dzYjohQGEIgjyNavaJfBY2p5F527Bo1VPATxv0VYTUC2bOcXvqFwk78Og==}
+  /decode-uri-component@0.2.2:
+    resolution: {integrity: sha512-FqUYQ+8o158GyGTrMFJms9qh3CqTKvAqgqsTnkLI8sKu0028orqBhxNMFkFen0zGyg6epACD32pjVk58ngIErQ==}
     engines: {node: '>=0.10'}
 
   /decompress-response@3.3.0:
@@ -4182,7 +4182,7 @@ packages:
     resolution: {integrity: sha512-gjWOsm2SoGlgLEdAGt7a6slVOk9mGiXmPFMqrEhLQ68rhQuBnpfs3+EmlvqKyxnCo9/PPlF+9MtY02S1aFg+Jw==}
     engines: {node: '>=0.10.0'}
     dependencies:
-      decode-uri-component: 0.2.0
+      decode-uri-component: 0.2.2
       object-assign: 4.1.1
       strict-uri-encode: 1.1.0
 
